@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>onAI — Legal</title>
+  <style>
+    :root {
+      --bg: #f5f5f7;
+      --surface: #ffffff;
+      --text: #1d1d1f;
+      --secondary: #6e6e73;
+      --accent: #007aff;
+      --border: #d2d2d7;
+      --radius: 12px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #000000;
+        --surface: #1c1c1e;
+        --text: #f5f5f7;
+        --secondary: #98989d;
+        --border: #38383a;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Nav ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(245, 245, 247, 0.85);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 0 24px;
+      height: 52px;
+    }
+    @media (prefers-color-scheme: dark) {
+      .nav { background: rgba(28, 28, 30, 0.85); }
+    }
+    .nav-brand {
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      color: var(--text);
+    }
+    .nav-links { display: flex; gap: 4px; margin-left: auto; }
+    .nav-link {
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--secondary);
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+      border: none;
+      background: none;
+    }
+    .nav-link:hover { background: rgba(0,0,0,0.06); color: var(--text); }
+    .nav-link.active { background: var(--accent); color: #fff; }
+    @media (prefers-color-scheme: dark) {
+      .nav-link:hover { background: rgba(255,255,255,0.08); }
+    }
+
+    /* ── Layout ── */
+    .page { display: none; }
+    .page.visible { display: block; }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .hero-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 14px;
+      background: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    .hero-icon svg { width: 36px; height: 36px; fill: #fff; }
+    .hero h1 {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 6px;
+    }
+    .hero p {
+      font-size: 15px;
+      color: var(--secondary);
+    }
+
+    /* ── Card ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      margin-bottom: 16px;
+    }
+    .card-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: var(--secondary);
+      margin-bottom: 12px;
+    }
+    .card p, .card li {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--secondary);
+    }
+    .card p + p { margin-top: 10px; }
+    .card ul, .card ol {
+      padding-left: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .card strong { color: var(--text); font-weight: 600; }
+
+    /* ── AI Mode pills ── */
+    .ai-modes {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .ai-mode {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .ai-mode-badge {
+      flex-shrink: 0;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      padding: 3px 8px;
+      border-radius: 20px;
+      margin-top: 1px;
+    }
+    .badge-ondevice { background: #e3f0ff; color: #0051a8; }
+    .badge-local    { background: #e8f8ee; color: #1a7a3a; }
+    .badge-cloud    { background: #fff3e0; color: #b85c00; }
+    @media (prefers-color-scheme: dark) {
+      .badge-ondevice { background: #0a3060; color: #5eb0ff; }
+      .badge-local    { background: #0d3320; color: #4cd97a; }
+      .badge-cloud    { background: #3d2000; color: #ffb84d; }
+    }
+    .ai-mode-body { flex: 1; }
+    .ai-mode-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+    .ai-mode-desc {
+      font-size: 13px;
+      color: var(--secondary);
+      line-height: 1.55;
+    }
+
+    /* ── Notice box ── */
+    .notice {
+      background: #fff8e7;
+      border: 1px solid #ffe680;
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin-top: 14px;
+      font-size: 13px;
+      color: #7a5c00;
+      line-height: 1.55;
+    }
+    @media (prefers-color-scheme: dark) {
+      .notice { background: #2d2200; border-color: #5a4400; color: #ffd966; }
+    }
+
+    /* ── Updated label ── */
+    .updated {
+      font-size: 12px;
+      color: var(--secondary);
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 12px;
+      color: var(--secondary);
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <span class="nav-brand">onAI</span>
+  <div class="nav-links">
+    <button class="nav-link active" onclick="show('privacy', this)">Privacy Policy</button>
+    <button class="nav-link" onclick="show('terms', this)">Terms of Use</button>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════
+     PRIVACY POLICY
+══════════════════════════════════════════════ -->
+<div id="page-privacy" class="page visible">
+  <div class="container">
+
+    <div class="hero">
+      <div class="hero-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+      </div>
+      <h1>Privacy Policy</h1>
+      <p>onAI is built to keep your data on your device.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Overview</div>
+      <p>onAI is a macOS menu bar utility that transforms text using AI. Privacy is a core design principle: we collect as little data as possible, and your text is never sent anywhere without your explicit opt-in.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">What We Collect</div>
+      <p><strong>Purchase information.</strong> When you subscribe or make a one-time purchase, Apple and RevenueCat process the transaction. We receive only an anonymous identifier — never your name, email address, or payment details.</p>
+      <p><strong>Apple Search Ads attribution.</strong> If you discovered onAI through an Apple Search Ad, anonymous attribution data may be shared with RevenueCat for analytics. This data cannot identify you personally.</p>
+      <p><strong>Nothing else.</strong> We do not use analytics SDKs, crash reporters, session recording tools, or any form of behavioral or device tracking.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">How Your Text Is Processed</div>
+      <p>onAI offers three AI modes. Choose the one that matches your privacy needs:</p>
+      <div class="ai-modes">
+        <div class="ai-mode">
+          <span class="ai-mode-badge badge-ondevice">ON-DEVICE</span>
+          <div class="ai-mode-body">
+            <div class="ai-mode-title">Apple Intelligence</div>
+            <div class="ai-mode-desc">Your text is processed entirely on your Mac by Apple's on-device framework. Nothing is sent anywhere — not to Apple, not to us. Requires Apple Intelligence to be enabled in System Settings.</div>
+          </div>
+        </div>
+        <div class="ai-mode">
+          <span class="ai-mode-badge badge-local">LOCAL</span>
+          <div class="ai-mode-body">
+            <div class="ai-mode-title">Ollama (local server)</div>
+            <div class="ai-mode-desc">Your text is sent to a locally running Ollama server on your Mac. It never leaves your machine. Requires Ollama to be installed and running separately.</div>
+          </div>
+        </div>
+        <div class="ai-mode">
+          <span class="ai-mode-badge badge-cloud">CLOUD</span>
+          <div class="ai-mode-body">
+            <div class="ai-mode-title">Cloud AI (opt-in)</div>
+            <div class="ai-mode-desc">If you choose to connect a cloud provider (such as OpenAI or Anthropic), selected text is sent to that provider's servers using <strong>your own API key</strong>. You will be asked to confirm this once before cloud mode activates. You can switch back to on-device or local AI at any time in Settings → Models.</div>
+          </div>
+        </div>
+      </div>
+      <div class="notice">
+        ⚠️ <strong>Important:</strong> A subscription to onAI does not grant access to any cloud AI service. Cloud AI requires your own API key from the respective provider (e.g. OpenAI, Anthropic). The subscription unlocks the onAI app itself.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Your API Keys</div>
+      <p>Any cloud AI API keys you enter are stored <strong>locally on your Mac only</strong>, using the system keychain or secure local storage. They are never transmitted to our servers. API keys are sent only to the cloud provider you configured when that provider is actively used.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Accessibility Permission</div>
+      <p>onAI requires Accessibility access to read the text you select in other applications and to replace text where supported. This permission is granted in <strong>System Settings → Privacy & Security → Accessibility</strong>.</p>
+      <p>We only access text at the exact moment you invoke a transformation. We never monitor your screen, log keystrokes, or read text passively in the background.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Third-Party Services</div>
+      <ul>
+        <li><strong>RevenueCat</strong> — manages subscription entitlements on our behalf. <a href="https://www.revenuecat.com/privacy" target="_blank">RevenueCat Privacy Policy →</a></li>
+        <li><strong>Apple</strong> — handles App Store purchases, Apple Intelligence, and receipt validation. <a href="https://www.apple.com/privacy/" target="_blank">Apple Privacy Policy →</a></li>
+        <li><strong>Cloud AI providers</strong> — only involved when you explicitly opt in with your own API key. Each provider has its own privacy policy.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Data Retention</div>
+      <p>We do not store any user data on our servers. Subscription status is managed by RevenueCat and Apple. All app preferences and API keys live on your Mac only.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Children's Privacy</div>
+      <p>onAI is not directed at children under 13. We do not knowingly collect personal information from children.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Changes to This Policy</div>
+      <p>We may update this policy from time to time. The current version is always available here and in the app under Settings → Privacy Policy.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Contact</div>
+      <p>Questions about privacy? Email us at <a href="mailto:privacy@onai.app">privacy@onai.app</a></p>
+    </div>
+
+    <p class="updated">Last updated: April 2026</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     TERMS OF USE
+══════════════════════════════════════════════ -->
+<div id="page-terms" class="page">
+  <div class="container">
+
+    <div class="hero">
+      <div class="hero-icon">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z"/></svg>
+      </div>
+      <h1>Terms of Use</h1>
+      <p>Straightforward and fair. By using onAI you agree to these terms.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">The App</div>
+      <p>onAI is a macOS menu bar utility that uses AI to transform selected text. It is available as a monthly subscription, yearly subscription, or a one-time lifetime purchase — all processed by Apple.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Subscription & Billing</div>
+      <p>Subscriptions renew automatically until cancelled. You can cancel at any time from <strong>System Settings → [Your Name] → Subscriptions</strong>, at least 24 hours before the next renewal date.</p>
+      <p><strong>Moving to a new Mac?</strong> Use "Restore Purchases" in onAI Settings to transfer your entitlement to the new device. The previous device will lose access on its next check.</p>
+      <p>One active Mac per subscription or lifetime purchase. This is enforced automatically via Apple's receipt system.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">What the Subscription Includes</div>
+      <p>Your subscription or lifetime purchase unlocks access to the <strong>onAI app</strong>. It does not include:</p>
+      <ul>
+        <li>Access to any third-party AI service (OpenAI, Anthropic, etc.)</li>
+        <li>API credits from any cloud AI provider</li>
+        <li>Any cloud processing on our infrastructure</li>
+      </ul>
+      <p>Cloud AI features require a separate API key from the chosen provider, paid directly to that provider under their own terms. On-device AI (Apple Intelligence) and local AI (Ollama) are free to use within the app.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">How the AI Works</div>
+      <div class="ai-modes">
+        <div class="ai-mode">
+          <span class="ai-mode-badge badge-ondevice">ON-DEVICE</span>
+          <div class="ai-mode-body">
+            <div class="ai-mode-title">Apple Intelligence</div>
+            <div class="ai-mode-desc">Runs entirely on your Mac. Private, free, and offline. Requires Apple Intelligence to be enabled in System Settings. Model assets may take a few minutes to download after first enabling it. Response speed depends on your Mac's workload and thermal state.</div>
+          </div>
+        </div>
+        <div class="ai-mode">
+          <span class="ai-mode-badge badge-local">LOCAL</span>
+          <div class="ai-mode-body">
+            <div class="ai-mode-title">Ollama</div>
+            <div class="ai-mode-desc">Runs AI locally via a server on your Mac. Requires Ollama to be installed and running. Performance varies by the model you choose and your hardware.</div>
+          </div>
+        </div>
+        <div class="ai-mode">
+          <span class="ai-mode-badge badge-cloud">CLOUD</span>
+          <div class="ai-mode-body">
+            <div class="ai-mode-title">Cloud AI (your API key)</div>
+            <div class="ai-mode-desc">Sends selected text to the provider you configure using your own API key. Typically delivers the fastest, highest-quality results. Requires a valid, funded API key from the chosen provider.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Refunds</div>
+      <p>Refunds follow Apple's standard App Store refund policy. To request a refund, visit <a href="https://reportaproblem.apple.com" target="_blank">reportaproblem.apple.com</a>.</p>
+      <p>Please note: AI availability and response quality are not grounds for a refund, as these depend on factors outside the app — including whether Apple Intelligence is enabled on your device, your internet connection, the quality of your API key, or the performance of a third-party provider. All of these can be evaluated before purchasing.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Accessibility Permission</div>
+      <p>onAI requires Accessibility permission to read selected text and replace it in other applications. Without it, the core functionality of the app cannot work. This permission can be granted or revoked at any time in <strong>System Settings → Privacy & Security → Accessibility</strong>.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Acceptable Use</div>
+      <p>You agree to use onAI responsibly and lawfully. In particular, you must not:</p>
+      <ul>
+        <li>Use onAI to generate harmful, illegal, threatening, or abusive content</li>
+        <li>Violate the terms of service of any AI provider you connect</li>
+        <li>Attempt to reverse-engineer, modify, or circumvent the app's license verification</li>
+        <li>Use onAI to process content you do not have the right to process</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">AI Output Disclaimer</div>
+      <p>AI-generated text is produced automatically and may contain errors, inaccuracies, or unintended content. You are responsible for reviewing output before using it in any important context. We are not liable for decisions made based on AI-generated content.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Limitation of Liability</div>
+      <p>onAI is provided "as is" without warranties of any kind. To the maximum extent permitted by applicable law, we are not liable for any indirect, incidental, special, or consequential damages arising from your use of the app, including but not limited to data loss, service interruption, or reliance on AI output.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Changes to These Terms</div>
+      <p>We may update these terms from time to time. The latest version is always available here and in the app under Settings → Terms of Use. Continued use of the app after changes constitutes acceptance of the updated terms.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Governing Law</div>
+      <p>These terms are governed by the laws of the Republic of Kazakhstan, without regard to conflict of law principles.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Contact</div>
+      <p>Questions? Email us at <a href="mailto:koszhanov.tilek@icloud.com">koszhanov.tilek@icloud.com</a></p>
+    </div>
+
+    <p class="updated">Last updated: April 2026</p>
+  </div>
+</div>
+
+<footer>
+  &copy; 2026 onAI &nbsp;·&nbsp;
+  <a href="mailto:privacy@onai.app">privacy@onai.app</a>
+</footer>
+
+<script>
+  function show(page, btn) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('visible'));
+    document.querySelectorAll('.nav-link').forEach(b => b.classList.remove('active'));
+    document.getElementById('page-' + page).classList.add('visible');
+    btn.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
