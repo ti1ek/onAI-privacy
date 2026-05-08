@@ -13,75 +13,32 @@
       padding: 20px;
       color: #333;
     }
-    h1 {
-      color: #000;
-      border-bottom: 2px solid #333;
-      padding-bottom: 10px;
-    }
-    h2 {
-      color: #000;
-      margin-top: 30px;
-      margin-bottom: 15px;
-    }
-    .last-updated {
-      color: #666;
-      font-size: 14px;
-      margin-bottom: 30px;
-    }
-    ul {
-      margin: 10px 0;
-      padding-left: 20px;
-    }
-    li {
-      margin: 5px 0;
-    }
-    a {
-      color: #007AFF;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
+    h1 { color: #000; border-bottom: 2px solid #333; padding-bottom: 10px; }
+    h2 { color: #000; margin-top: 30px; margin-bottom: 15px; }
+    .last-updated { color: #666; font-size: 14px; margin-bottom: 30px; }
+    ul { margin: 10px 0; padding-left: 20px; }
+    li { margin: 5px 0; }
+    a { color: #007AFF; text-decoration: none; }
+    a:hover { text-decoration: underline; }
     .tabs {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 32px;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 0;
+      display: flex; gap: 8px; margin-bottom: 32px;
+      border-bottom: 1px solid #ddd; padding-bottom: 0;
     }
     .tab {
-      padding: 8px 20px;
-      border: none;
-      background: none;
-      font-size: 15px;
-      font-family: inherit;
-      cursor: pointer;
-      color: #666;
-      border-bottom: 2px solid transparent;
-      margin-bottom: -1px;
+      padding: 8px 20px; border: none; background: none;
+      font-size: 15px; font-family: inherit; cursor: pointer;
+      color: #666; border-bottom: 2px solid transparent; margin-bottom: -1px;
     }
-    .tab.active {
-      color: #007AFF;
-      border-bottom: 2px solid #007AFF;
-      font-weight: 600;
-    }
+    .tab.active { color: #007AFF; border-bottom: 2px solid #007AFF; font-weight: 600; }
     .page { display: none; }
     .page.visible { display: block; }
-    .notice {
-      background: #fff8e7;
-      border-left: 4px solid #f0a500;
-      padding: 12px 16px;
-      margin: 12px 0;
-      font-size: 14px;
-      color: #555;
-    }
     footer {
-      margin-top: 60px;
-      padding-top: 20px;
-      border-top: 1px solid #ddd;
-      font-size: 13px;
-      color: #999;
+      margin-top: 60px; padding-top: 20px;
+      border-top: 1px solid #ddd; font-size: 13px; color: #999;
     }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 12px 0; }
+    th { text-align: left; padding: 8px 4px; border-bottom: 2px solid #ddd; }
+    td { padding: 7px 4px; border-bottom: 1px solid #eee; }
   </style>
 </head>
 <body>
@@ -100,86 +57,79 @@
 
   <p class="last-updated"><strong>Last updated: May 2026</strong></p>
 
-  <h2>1. Overview</h2>
+  <h2>1. Who We Are</h2>
+  <p>onAI is developed and operated by <strong>Tilek Koszhanov</strong>, an individual developer based in Kazakhstan. References to "we", "us", or "our" in this policy refer to Tilek Koszhanov. Contact: <a href="mailto:koszhanov.tilek@icloud.com">koszhanov.tilek@icloud.com</a>.</p>
   <p>onAI is a macOS menu bar utility that transforms text using AI. Privacy is a core design principle: we collect as little data as possible, and your text is never sent anywhere without your explicit opt-in.</p>
+  <p><strong>We do not use cookies, analytics SDKs, crash reporters, session recording, or any form of behavioral or device tracking — in the app or on this website.</strong></p>
 
-  <h2>2. Information We Collect</h2>
-  <p><strong>Purchase information.</strong> When you purchase onAI directly on our website, Lemon Squeezy processes the payment on our behalf. Your email address is collected solely to deliver your license key — we do not store it on our own servers beyond what is required for order delivery.</p>
-  <p><strong>License validation.</strong> The app periodically validates your license key to confirm it is still active. Only the license key and a machine identifier are sent — no text content, no personal details.</p>
-  <p><strong>Nothing else.</strong> We do not use analytics SDKs, crash reporters, session recording tools, or any form of behavioral or device tracking.</p>
+  <h2>2. What We Collect and Why</h2>
+  <p><strong>Email address</strong> — collected by Lemon Squeezy at checkout solely to deliver your license key. We do not store your email on our own servers. Legal basis: performance of a contract (delivering the product you purchased).</p>
+  <p><strong>License key + machine identifier</strong> — the app periodically sends your license key and an anonymous machine ID to verify the license is active and assigned to one Mac. No text content or personal details are included. Legal basis: legitimate interest (preventing license sharing and fraud).</p>
+  <p><strong>Nothing else.</strong> No usage data, no text you transform, no identifiers beyond the above.</p>
 
   <h2>3. How Your Text Is Processed</h2>
-  <p>onAI offers three AI modes. Choose the one that matches your privacy needs:</p>
-  <p><strong>On-Device — Apple Intelligence:</strong> Your text is processed entirely on your Mac by Apple's on-device framework. Nothing is sent anywhere — not to Apple, not to us. Requires Apple Intelligence to be enabled in System Settings.</p>
-  <p><strong>Local — Ollama:</strong> Your text is sent to a locally running Ollama server on your Mac. It never leaves your machine. Requires Ollama to be installed and running separately.</p>
-  <p><strong>Cloud — opt-in:</strong> If you choose to connect a cloud provider (such as OpenAI or Anthropic), selected text is sent to that provider's servers using your own API key. You will be asked to confirm this once before cloud mode activates. You can switch back to on-device or local AI at any time in Settings → Models.</p>
-  <div class="notice">
-    <strong>Plan differences:</strong><br>
-    <strong>Basic</strong> — unlocks on-device AI (Apple Intelligence, Ollama) and lets you connect your own API key from any cloud provider.<br>
-    <strong>Pro</strong> — includes everything in Basic, plus built-in OpenAI cloud access with no API key required. Your text is sent to OpenAI's servers when using this feature.<br>
-    <strong>Lifetime</strong> — unlocks on-device AI and BYOK cloud, same as Basic. Does not include built-in OpenAI cloud access.
-  </div>
+  <p>onAI offers three AI modes:</p>
+  <p><strong>On-Device — Apple Intelligence:</strong> Your text is processed entirely on your Mac by Apple's on-device framework. Nothing is sent to Apple, to us, or anywhere else. Requires Apple Intelligence to be enabled in System Settings.</p>
+  <p><strong>Local — Ollama:</strong> Your text is processed by a locally running Ollama server on your Mac. It never leaves your machine. Requires Ollama to be installed separately.</p>
+  <p><strong>Cloud — your own API key (all plans):</strong> Selected text is sent to the provider you configure (e.g. OpenAI, Anthropic, Google) using your own API key. We never see or store this text. Each provider's own privacy policy applies.</p>
+  <p><strong>Cloud — built-in OpenAI (Pro plan only):</strong> Selected text is sent to OpenAI's servers via our account. We do not log or store this text. OpenAI's <a href="https://openai.com/privacy" target="_blank">Privacy Policy</a> applies to text processed through this feature.</p>
 
   <h2>4. Your API Keys</h2>
-  <p>Any cloud AI API keys you enter are stored locally on your Mac only, using secure local storage. They are never transmitted to our servers. API keys are sent only to the cloud provider you configured when that provider is actively used.</p>
+  <p>Any cloud AI API keys you enter are stored exclusively in the <strong>macOS Keychain</strong> on your Mac. They are never transmitted to our servers. Keys are sent only to the cloud provider you configured, only when that provider is actively processing a request.</p>
 
   <h2>5. Accessibility Permission</h2>
-  <p>onAI requires Accessibility access to read the text you select in other applications and to replace text where supported. This permission is granted in <strong>System Settings → Privacy &amp; Security → Accessibility</strong>.</p>
-  <p>We only access text at the exact moment you invoke a transformation — we never monitor your screen, log keystrokes, or read text passively in the background.</p>
+  <p>onAI requires Accessibility access to read the text you select in other applications and to replace it where supported. This permission is granted in <strong>System Settings → Privacy &amp; Security → Accessibility</strong>.</p>
+  <p>We access text only at the exact moment you trigger a transformation. We never monitor your screen passively, log keystrokes, or read text in the background.</p>
 
-  <h2>6. Information Sharing</h2>
-  <p>We do not sell your personal information. We share information only with the following third parties:</p>
+  <h2>6. Third Parties We Share Data With</h2>
+  <p>We do not sell your personal information. The only third parties that receive any data are:</p>
   <ul>
-    <li><strong>Lemon Squeezy</strong> — processes payments and manages license delivery on our behalf. <a href="https://www.lemonsqueezy.com/privacy" target="_blank">Privacy Policy</a></li>
-    <li><strong>Apple</strong> — provides Apple Intelligence and system-level APIs. <a href="https://www.apple.com/privacy/" target="_blank">Privacy Policy</a></li>
-    <li><strong>Cloud AI providers</strong> — only involved when you explicitly opt in with your own API key. Each provider has its own privacy policy.</li>
+    <li><strong>Lemon Squeezy</strong> — processes payments and delivers license keys on our behalf. Receives your email and payment details at checkout. <a href="https://www.lemonsqueezy.com/privacy" target="_blank">Privacy Policy</a></li>
+    <li><strong>Apple</strong> — provides Apple Intelligence and macOS system APIs. <a href="https://www.apple.com/privacy/" target="_blank">Privacy Policy</a></li>
+    <li><strong>Cloud AI providers</strong> — receive selected text only when you actively use cloud mode with your own API key. Each provider has its own privacy policy.</li>
+    <li><strong>OpenAI</strong> — receives selected text when Pro subscribers use the built-in OpenAI feature. <a href="https://openai.com/privacy" target="_blank">Privacy Policy</a></li>
   </ul>
-  <p>We may also share information to comply with legal requirements, protect our rights, or in connection with a merger or acquisition (with notice to users).</p>
+  <p>We may also disclose information if required by law, court order, or to protect our legal rights.</p>
 
-  <h2>7. Data Security</h2>
-  <p>We implement appropriate security measures to protect your information:</p>
+  <h2>7. International Data Transfers</h2>
+  <p>The following international transfers may occur:</p>
+  <ul>
+    <li><strong>Lemon Squeezy</strong> — your email and payment data may be processed on servers in the United States.</li>
+    <li><strong>Cloud AI providers</strong> — when using cloud mode, your selected text is sent to the provider's servers, typically in the United States.</li>
+    <li><strong>License validation</strong> — your license key and machine ID may be validated on servers outside Kazakhstan.</li>
+  </ul>
+  <p>On-device (Apple Intelligence) and local (Ollama) modes involve no international data transfers whatsoever.</p>
+
+  <h2>8. Data Security</h2>
   <ul>
     <li>All network connections use HTTPS/TLS encryption</li>
-    <li>API keys are stored using secure local storage on your Mac</li>
-    <li>We have no backend servers that store your text or usage data</li>
+    <li>API keys are stored in the macOS Keychain — the system-level secure credential store</li>
+    <li>We operate no backend servers that store your text or usage data</li>
   </ul>
-  <p>While we strive to protect your information, no method of electronic storage is 100% secure. We recommend not entering highly sensitive information (passwords, financial data) into any AI tool.</p>
+  <p>While we apply appropriate security measures, no electronic system is 100% secure. We recommend not submitting highly sensitive content (passwords, financial data) to any AI tool.</p>
 
-  <h2>8. Data Retention</h2>
-  <p>We do not store any user data on our servers. License status is managed by Lemon Squeezy. All app preferences and API keys live on your Mac only. You may request deletion of any data we hold by contacting us at <a href="mailto:koszhanov.tilek@icloud.com">koszhanov.tilek@icloud.com</a>.</p>
-
-  <h2>9. International Data Transfers</h2>
-  <p>When using Cloud AI mode, your selected text is sent to the provider you configured (e.g. OpenAI, Anthropic), whose servers are typically located in the United States. This transfer occurs using your own API key and is subject to that provider's privacy policy. On-device (Apple Intelligence) and local (Ollama) modes involve no international data transfers.</p>
+  <h2>9. Data Retention</h2>
+  <p>We do not store personal data on our servers. Your email exists only in Lemon Squeezy's systems for order and license management. All app preferences and API keys reside on your Mac only. You may request deletion of any data we hold by contacting <a href="mailto:koszhanov.tilek@icloud.com">koszhanov.tilek@icloud.com</a>.</p>
 
   <h2>10. Your Rights</h2>
-  <p>Depending on your location, you may have the following rights regarding your personal information:</p>
-  <ul>
-    <li><strong>Right to Access:</strong> Request access to information we hold about you</li>
-    <li><strong>Right to Erasure:</strong> Request deletion of your data</li>
-    <li><strong>Right to Rectification:</strong> Correct inaccurate information</li>
-    <li><strong>Right to Restrict Processing:</strong> Request limitation of data processing</li>
-    <li><strong>Right to Data Portability:</strong> Request transfer of your data</li>
-    <li><strong>Right to Object:</strong> Object to certain types of data processing</li>
-    <li><strong>Right to Withdraw Consent:</strong> Withdraw consent at any time</li>
-    <li><strong>Right to Lodge a Complaint:</strong> File a complaint with relevant data protection authorities</li>
-  </ul>
-  <p>To exercise these rights, contact us at <a href="mailto:koszhanov.tilek@icloud.com">koszhanov.tilek@icloud.com</a>.</p>
+  <p>Depending on your location, you may have the right to access, correct, delete, or port your personal data; to restrict or object to processing; and to lodge a complaint with a data protection authority. To exercise any of these rights, contact us at <a href="mailto:koszhanov.tilek@icloud.com">koszhanov.tilek@icloud.com</a>. We will respond within 30 days.</p>
 
   <h2>11. California Privacy Rights (CCPA)</h2>
-  <p>If you are a California resident, you have the right to know what personal information we collect, to request deletion, and to opt out of the sale of personal information. We do not sell personal information. To exercise these rights, contact us at <a href="mailto:koszhanov.tilek@icloud.com">koszhanov.tilek@icloud.com</a>.</p>
+  <p>California residents have the right to know what personal information we collect, to request deletion, and to opt out of the sale of personal information. We do not sell personal information. Contact us at <a href="mailto:koszhanov.tilek@icloud.com">koszhanov.tilek@icloud.com</a> to exercise these rights.</p>
 
   <h2>12. European Privacy Rights (GDPR)</h2>
-  <p>If you are in the European Economic Area (EEA), we process your data based on contractual necessity (to provide the app services) and legitimate interests (to manage license verification). You have the right to lodge a complaint with your local data protection authority if you believe we have violated your privacy rights.</p>
+  <p>If you are in the European Economic Area, Tilek Koszhanov is the data controller. We process your data on the legal bases described in Section 2. You have the right to lodge a complaint with your local supervisory authority. For data transfer mechanisms regarding international transfers, we rely on standard contractual clauses or the adequacy decisions of the European Commission where applicable.</p>
 
   <h2>13. Children's Privacy</h2>
-  <p>onAI is not directed at children under 13 years of age (or 16 in the European Union). We do not knowingly collect personal information from children. If you believe your child has provided us with personal information, contact us at <a href="mailto:koszhanov.tilek@icloud.com">koszhanov.tilek@icloud.com</a> and we will delete it promptly.</p>
+  <p>onAI is not directed at children under 13 (or 16 in the EU). We do not knowingly collect personal information from minors. Contact us at <a href="mailto:koszhanov.tilek@icloud.com">koszhanov.tilek@icloud.com</a> if you believe a child has provided us with personal information and we will delete it promptly.</p>
 
   <h2>14. Changes to This Policy</h2>
-  <p>We may update this policy from time to time. The current version is always available at this page and in the app under Settings → Privacy Policy. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
+  <p>We may update this policy from time to time. For material changes — meaning changes that affect how we collect, use, or share your data — we will notify you by email (using the address on your Lemon Squeezy order) at least 14 days before the change takes effect. The current version is always available at this page and in the app under Settings → Privacy Policy.</p>
 
   <h2>15. Contact</h2>
-  <p>Questions about privacy? Contact us at:<br>
-  <strong>Email:</strong> <a href="mailto:koszhanov.tilek@icloud.com">koszhanov.tilek@icloud.com</a></p>
+  <p><strong>Tilek Koszhanov</strong><br>
+  Kazakhstan<br>
+  <a href="mailto:koszhanov.tilek@icloud.com">koszhanov.tilek@icloud.com</a></p>
 
 </div>
 
@@ -190,119 +140,145 @@
 
   <p class="last-updated"><strong>Last updated: May 2026</strong></p>
 
-  <h2>1. The App</h2>
-  <p>onAI is a macOS menu bar utility that uses AI to transform selected text. By using onAI, you agree to these terms. It is available as a monthly subscription, yearly subscription, or a one-time lifetime purchase — all sold directly through our website at <a href="https://getonai.app" target="_blank">getonai.app</a>.</p>
+  <h2>1. Agreement</h2>
+  <p>These Terms of Use ("Terms") govern your use of the onAI application and website at <a href="https://getonai.app" target="_blank">getonai.app</a>, operated by <strong>Tilek Koszhanov</strong> ("we", "us", "our"). By downloading, installing, or using onAI, you agree to these Terms in full. If you do not agree, do not use the app.</p>
   <p><strong>System requirements:</strong> onAI requires macOS 26 or later and Apple Silicon (M1 or newer). Verify compatibility before purchasing.</p>
 
-  <h2>2. Purchase & Billing</h2>
-  <p>Purchases are processed by <strong>Lemon Squeezy</strong> on our behalf. Upon a successful payment, your license key is delivered to the email address you provided at checkout. If you do not receive it within a few minutes, check your spam folder or contact us.</p>
-  <p><strong>License activation.</strong> Each license key activates on one Mac at a time. Activate it in Settings → License. If you need to move to a new Mac, deactivate the current one first (Settings → License → Deactivate), then activate on the new Mac. If your Mac is lost or replaced unexpectedly, contact us to force-transfer your license.</p>
-  <p><strong>Subscriptions</strong> renew automatically on the same day each month or year until cancelled. To cancel, use the customer portal link in your order confirmation email. Cancel at least 24 hours before the next renewal date to avoid being charged for the next period. Cancellation stops future charges; access continues until the end of the paid period.</p>
+  <h2>2. License Grant</h2>
+  <p>Subject to your compliance with these Terms and payment of applicable fees, we grant you a limited, non-exclusive, non-transferable, revocable license to install and use onAI on one Mac at a time for your personal, non-commercial purposes.</p>
+  <p>This license is not a sale. All rights, title, and interest in onAI — including all intellectual property rights in the software, branding, and content — remain exclusively with Tilek Koszhanov. You receive only the right to use the app as described here.</p>
+
+  <h2>3. Purchase &amp; Billing</h2>
+  <p>Purchases are processed by <strong>Lemon Squeezy</strong> on our behalf. Upon successful payment, your license key is delivered to the email you provided at checkout. If you do not receive it within a few minutes, check your spam folder or contact us.</p>
+  <p><strong>License activation.</strong> Each key activates on one Mac at a time. Activate in Settings → License. To move to a new Mac, deactivate the current one first (Settings → License → Deactivate), then activate on the new device. If your Mac is lost or replaced unexpectedly, contact us to transfer your license.</p>
+  <p><strong>Subscriptions</strong> renew automatically on the same date each month or year until cancelled. To cancel, use the customer portal link in your order confirmation email. Cancel at least 24 hours before the next renewal date. Upon cancellation, access continues until the end of the paid period — no partial refunds for unused time.</p>
   <p><strong>Lifetime purchase</strong> grants permanent access to the app and all future updates.</p>
 
-  <h2>3. What Each Plan Includes</h2>
+  <h2>4. What Each Plan Includes</h2>
   <p>All plans unlock the onAI app. The AI features available depend on your plan:</p>
-  <table style="width:100%; border-collapse:collapse; font-size:14px; margin:12px 0;">
+  <table>
     <thead>
-      <tr style="border-bottom:2px solid #ddd;">
-        <th style="text-align:left; padding:8px 4px;">Feature</th>
-        <th style="text-align:center; padding:8px 4px;">Basic</th>
-        <th style="text-align:center; padding:8px 4px;">Pro</th>
-        <th style="text-align:center; padding:8px 4px;">Lifetime</th>
+      <tr>
+        <th>Feature</th>
+        <th style="text-align:center;">Basic</th>
+        <th style="text-align:center;">Pro</th>
+        <th style="text-align:center;">Lifetime</th>
       </tr>
     </thead>
     <tbody>
-      <tr style="border-bottom:1px solid #eee;">
-        <td style="padding:7px 4px;">Apple Intelligence (on-device, private)</td>
+      <tr>
+        <td>Apple Intelligence (on-device, private)</td>
         <td style="text-align:center;">✓</td>
         <td style="text-align:center;">✓</td>
         <td style="text-align:center;">✓</td>
       </tr>
-      <tr style="border-bottom:1px solid #eee;">
-        <td style="padding:7px 4px;">Local AI via Ollama</td>
+      <tr>
+        <td>Local AI via Ollama</td>
         <td style="text-align:center;">✓</td>
         <td style="text-align:center;">✓</td>
         <td style="text-align:center;">✓</td>
       </tr>
-      <tr style="border-bottom:1px solid #eee;">
-        <td style="padding:7px 4px;">Cloud AI with your own API key (OpenAI, Claude, Gemini…)</td>
+      <tr>
+        <td>Cloud AI with your own API key (OpenAI, Claude, Gemini…)</td>
         <td style="text-align:center;">✓</td>
         <td style="text-align:center;">✓</td>
         <td style="text-align:center;">✓</td>
       </tr>
-      <tr style="border-bottom:1px solid #eee;">
-        <td style="padding:7px 4px;"><strong>Built-in OpenAI cloud — no API key needed</strong></td>
+      <tr>
+        <td><strong>Built-in OpenAI cloud — no API key needed</strong></td>
         <td style="text-align:center; color:#999;">✗</td>
         <td style="text-align:center; color:#16a34a;"><strong>✓</strong></td>
         <td style="text-align:center; color:#999;">✗</td>
       </tr>
       <tr>
-        <td style="padding:7px 4px;">License per Mac</td>
+        <td>License per Mac (simultaneous)</td>
         <td style="text-align:center;">1</td>
         <td style="text-align:center;">1</td>
         <td style="text-align:center;">1</td>
       </tr>
     </tbody>
   </table>
-  <p><strong>Bring Your Own Key (Basic &amp; Lifetime).</strong> Cloud AI via your own API key requires a valid, funded account with the chosen provider (e.g. OpenAI, Anthropic, Google). API usage costs are billed directly by that provider under their own pricing and terms — they are not included in your onAI license.</p>
-  <p><strong>Built-in OpenAI cloud (Pro only).</strong> Pro subscribers can use OpenAI-powered transformations without their own API key. This feature routes requests through our OpenAI account. Availability depends on OpenAI service uptime; we do not guarantee specific response times or model versions. We may adjust, throttle, or discontinue this feature with reasonable notice.</p>
+  <p><strong>Bring Your Own Key — Basic &amp; Lifetime.</strong> Cloud AI via your own API key requires a valid, funded account with the chosen provider. API usage costs are billed directly by that provider at their own rates — they are not included in your onAI license.</p>
+  <p><strong>Built-in OpenAI cloud — Pro only.</strong> Pro subscribers may use OpenAI-powered transformations with no API key. Requests are routed through our OpenAI account. We do not guarantee specific response times, model versions, or uptime. We may adjust, throttle, or discontinue this feature with reasonable notice.</p>
 
-  <h2>4. How the AI Works</h2>
-  <p><strong>On-Device — Apple Intelligence:</strong> Runs entirely on your Mac using Apple's on-device framework. Requires Apple Intelligence to be enabled in System Settings → Apple Intelligence &amp; Siri. Model assets may take a few minutes to download after first enabling it. Availability depends on Apple's framework — not on onAI itself.</p>
-  <p><strong>Local — Ollama:</strong> Runs AI locally via a server on your Mac. Requires <a href="https://ollama.com" target="_blank">Ollama</a> to be installed and running separately. Performance varies by model and hardware.</p>
-  <p><strong>Cloud — your API key (Basic &amp; Lifetime):</strong> Sends selected text to the provider you configure. Requires a funded API key. Usage is billed by the provider at their rates.</p>
-  <p><strong>Cloud — built-in OpenAI (Pro only):</strong> Sends selected text to OpenAI's servers via our account. Your text is subject to OpenAI's <a href="https://openai.com/privacy" target="_blank">Privacy Policy</a> and <a href="https://openai.com/policies/usage-policies" target="_blank">Usage Policies</a>.</p>
+  <h2>5. How the AI Works</h2>
+  <p><strong>On-Device — Apple Intelligence:</strong> Runs entirely on your Mac. Requires Apple Intelligence to be enabled in System Settings → Apple Intelligence &amp; Siri. Availability and performance depend on Apple's framework, not on onAI.</p>
+  <p><strong>Local — Ollama:</strong> Runs via a local server on your Mac. Requires <a href="https://ollama.com" target="_blank">Ollama</a> to be installed and running separately. Performance varies by model and hardware.</p>
+  <p><strong>Cloud — your API key (Basic &amp; Lifetime):</strong> Sends selected text to the provider you configure. Requires a valid, funded API key. Usage is billed by that provider at their rates.</p>
+  <p><strong>Cloud — built-in OpenAI (Pro only):</strong> Sends selected text to OpenAI's servers via our account. Subject to OpenAI's <a href="https://openai.com/privacy" target="_blank">Privacy Policy</a> and <a href="https://openai.com/policies/usage-policies" target="_blank">Usage Policies</a>.</p>
 
-  <h2>5. Refunds</h2>
-  <p>We offer a <strong>14-day money-back guarantee</strong>. If you are not satisfied within 14 days of purchase, request a refund through the link in your order confirmation email (sent by Lemon Squeezy) or by contacting us at <a href="mailto:koszhanov.tilek@icloud.com">koszhanov.tilek@icloud.com</a> with your order number. Refunds are typically processed within 5–10 business days.</p>
-  <p>The following are <strong>not grounds for a refund</strong>, as they depend on factors outside the app that can be verified before purchasing:</p>
+  <h2>6. Refunds</h2>
+  <p>We offer a <strong>14-day money-back guarantee</strong>. To request a refund, use the link in your Lemon Squeezy order confirmation email or contact us at <a href="mailto:koszhanov.tilek@icloud.com">koszhanov.tilek@icloud.com</a> with your order number. Refunds are typically processed within 5–10 business days.</p>
+  <p>The following are <strong>not grounds for a refund</strong>, as they reflect conditions outside the app that you can verify before purchasing:</p>
   <ul>
     <li>Apple Intelligence is not available or not enabled on your Mac</li>
     <li>Your Mac does not meet the system requirements (macOS 26+, Apple Silicon)</li>
-    <li>OpenAI or another third-party provider is experiencing an outage</li>
-    <li>Response quality does not meet your expectations</li>
-    <li>You have a BYOK plan and your API key is invalid, depleted, or rate-limited</li>
+    <li>An outage or degraded performance at a third-party provider (OpenAI, your cloud AI provider, etc.)</li>
+    <li>Your own API key is invalid, expired, depleted, or rate-limited</li>
+    <li>Subjective dissatisfaction with AI response style or output length</li>
+    <li>Inability to use a feature that requires a separate third-party setup (Ollama, Apple Intelligence)</li>
   </ul>
-  <p>For subscription plans, refunds apply only to the most recent billing period. Previous periods are non-refundable.</p>
-
-  <h2>6. Accessibility Permission</h2>
-  <p>onAI requires Accessibility permission to read selected text and replace it in other applications. Without it, the core functionality of the app cannot work. This permission can be granted or revoked at any time in <strong>System Settings → Privacy &amp; Security → Accessibility</strong>. Granting this permission is not optional for the app to function — if you are uncomfortable with it, please evaluate this before purchasing.</p>
+  <p>Subscription refunds apply only to the most recent billing period. Prior periods are non-refundable.</p>
 
   <h2>7. Acceptable Use</h2>
-  <p>You agree to use onAI responsibly and lawfully. In particular, you must not:</p>
+  <p>You agree to use onAI solely for lawful purposes and in accordance with these Terms. You must not:</p>
   <ul>
-    <li>Use onAI to generate harmful, illegal, threatening, or abusive content</li>
-    <li>Violate the terms of service of any AI provider you connect</li>
-    <li>Attempt to reverse-engineer, modify, or circumvent the app's license verification</li>
-    <li>Share, resell, or distribute your license key to others — your key may be revoked without refund</li>
-    <li>Use onAI to process content you do not have the right to process</li>
-    <li>Abuse the built-in OpenAI feature (Pro) through automated or bulk usage beyond normal personal use</li>
+    <li>Generate or distribute harmful, illegal, threatening, defamatory, or abusive content</li>
+    <li>Violate the terms of service or usage policies of any AI provider you connect</li>
+    <li>Reverse-engineer, decompile, disassemble, or circumvent any part of the app or its license verification</li>
+    <li>Share, sell, sublicense, or transfer your license key to any third party — violation may result in immediate revocation without refund</li>
+    <li>Use the built-in OpenAI feature (Pro) for automated, programmatic, or bulk processing beyond normal personal interactive use</li>
+    <li>Process content that you do not have the legal right to use or transform</li>
+    <li>Use onAI in any way that could damage, disable, or impair our services or infrastructure</li>
   </ul>
 
-  <h2>8. AI Output Disclaimer</h2>
-  <p>AI-generated text is produced automatically and may contain errors, inaccuracies, or unintended content. You are responsible for reviewing all output before using it in any professional, legal, medical, or other important context. We are not liable for decisions made based on AI-generated content.</p>
+  <h2>8. Intellectual Property</h2>
+  <p>onAI, its name, logo, design, software, and all associated intellectual property are owned exclusively by Tilek Koszhanov and are protected by applicable copyright, trademark, and other intellectual property laws. Nothing in these Terms grants you any right, title, or interest in onAI beyond the limited license described in Section 2.</p>
+  <p>Third-party components, libraries, AI models, and services used by onAI remain the property of their respective owners and are subject to their own licenses and terms.</p>
 
-  <h2>9. Service Availability</h2>
-  <p>On-device and local AI features (Apple Intelligence, Ollama) do not depend on our servers and are available as long as the respective software runs on your Mac.</p>
-  <p>The built-in OpenAI feature (Pro) and license validation require internet access. We aim for high availability but do not guarantee uninterrupted service. Temporary outages of third-party providers (OpenAI, Lemon Squeezy) are outside our control and do not constitute grounds for a refund or subscription credit.</p>
+  <h2>9. Termination</h2>
+  <p>We may suspend or terminate your license immediately and without prior notice if you materially breach these Terms — including but not limited to sharing your license key, reverse-engineering the app, or abusing the built-in OpenAI feature. Upon termination:</p>
+  <ul>
+    <li>Your right to use the app ceases immediately</li>
+    <li>No refund is owed for the remaining period of a subscription or for a lifetime purchase where termination is due to your breach</li>
+    <li>You must cease all use and delete the app from your Mac</li>
+  </ul>
+  <p>You may terminate your use at any time by cancelling your subscription and uninstalling the app.</p>
 
-  <h2>10. Limitation of Liability</h2>
-  <p>onAI is provided "as is" without warranties of any kind. To the maximum extent permitted by applicable law, we are not liable for any indirect, incidental, special, or consequential damages arising from your use of the app, including but not limited to data loss, service interruption, or reliance on AI output.</p>
+  <h2>10. Accessibility Permission</h2>
+  <p>onAI requires Accessibility permission to read selected text and replace it in other applications. Without it, the core functionality cannot work. This permission can be granted or revoked at any time in System Settings → Privacy &amp; Security → Accessibility. If you are uncomfortable granting this permission, please evaluate this before purchasing.</p>
 
-  <h2>12. Changes to These Terms</h2>
-  <p>We may update these terms from time to time. The latest version is always available at this page and in the app under Settings → Terms of Use. Continued use of the app after changes constitutes acceptance of the updated terms.</p>
+  <h2>11. Service Availability</h2>
+  <p>On-device (Apple Intelligence) and local (Ollama) features do not depend on our servers and are available as long as the respective software runs on your Mac.</p>
+  <p>The built-in OpenAI feature (Pro) and license validation require internet connectivity. We aim for high availability but do not guarantee uninterrupted access. Outages at third-party providers are outside our control and do not constitute grounds for a refund or service credit.</p>
 
-  <h2>13. Governing Law</h2>
-  <p>These terms are governed by the laws of the Republic of Kazakhstan, without regard to conflict of law principles.</p>
+  <h2>12. AI Output Disclaimer</h2>
+  <p>AI-generated text is produced automatically and may contain errors, inaccuracies, or unintended content. You are solely responsible for reviewing all output before using it in any professional, legal, medical, financial, or other consequential context. We expressly disclaim liability for any decisions made, actions taken, or losses incurred based on AI-generated content.</p>
 
-  <h2>14. Contact</h2>
-  <p>Questions? Contact us at:<br>
-  <strong>Email:</strong> <a href="mailto:koszhanov.tilek@icloud.com">koszhanov.tilek@icloud.com</a></p>
+  <h2>13. Disclaimer of Warranties</h2>
+  <p>onAI is provided <strong>"as is" and "as available"</strong> without any warranty of any kind, express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, accuracy, or non-infringement. We do not warrant that the app will be error-free, uninterrupted, or that defects will be corrected. Some jurisdictions do not allow exclusion of implied warranties, so the above may not apply to you in full.</p>
+
+  <h2>14. Limitation of Liability</h2>
+  <p>To the maximum extent permitted by applicable law, Tilek Koszhanov shall not be liable for any indirect, incidental, special, punitive, or consequential damages — including loss of data, loss of revenue, loss of business, or reliance on AI output — arising from your use of or inability to use onAI, regardless of the theory of liability and even if we have been advised of the possibility of such damages. Our total aggregate liability to you for any claim arising out of these Terms or your use of onAI shall not exceed the amount you paid us in the 12 months preceding the claim.</p>
+
+  <h2>15. Severability</h2>
+  <p>If any provision of these Terms is found to be invalid, illegal, or unenforceable by a court of competent jurisdiction, that provision shall be modified to the minimum extent necessary to make it enforceable, or severed if modification is not possible. The remaining provisions shall continue in full force and effect.</p>
+
+  <h2>16. Changes to These Terms</h2>
+  <p>We may update these Terms from time to time. For material changes, we will notify you by email at least 14 days before the change takes effect. Continued use of the app after the effective date constitutes acceptance of the updated Terms. The latest version is always available at this page and in the app under Settings → Terms of Use.</p>
+
+  <h2>17. Governing Law &amp; Disputes</h2>
+  <p>These Terms are governed by the laws of the Republic of Kazakhstan, without regard to conflict of law principles. Any dispute arising out of or relating to these Terms shall first be attempted to be resolved through good-faith negotiation. If unresolved, disputes shall be subject to the exclusive jurisdiction of the courts of the Republic of Kazakhstan.</p>
+
+  <h2>18. Contact</h2>
+  <p><strong>Tilek Koszhanov</strong><br>
+  Kazakhstan<br>
+  <a href="mailto:koszhanov.tilek@icloud.com">koszhanov.tilek@icloud.com</a></p>
 
 </div>
 
 <footer>
-  &copy; 2026 onAI &nbsp;&middot;&nbsp; <a href="mailto:koszhanov.tilek@icloud.com">koszhanov.tilek@icloud.com</a>
+  &copy; 2026 onAI — Tilek Koszhanov &nbsp;&middot;&nbsp; <a href="mailto:koszhanov.tilek@icloud.com">koszhanov.tilek@icloud.com</a>
 </footer>
 
 <script>
@@ -313,13 +289,11 @@
     if (btn) btn.classList.add('active');
     else {
       const tabs = document.querySelectorAll('.tab');
-      const idx = page === 'terms' ? 1 : 0;
-      tabs[idx].classList.add('active');
+      tabs[page === 'terms' ? 1 : 0].classList.add('active');
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
     history.replaceState(null, '', '#' + page);
   }
-
   (function () {
     const hash = location.hash.replace('#', '');
     if (hash === 'terms') show('terms', null);
