@@ -114,7 +114,10 @@
   <p><strong>Local — Ollama:</strong> Your text is sent to a locally running Ollama server on your Mac. It never leaves your machine. Requires Ollama to be installed and running separately.</p>
   <p><strong>Cloud — opt-in:</strong> If you choose to connect a cloud provider (such as OpenAI or Anthropic), selected text is sent to that provider's servers using your own API key. You will be asked to confirm this once before cloud mode activates. You can switch back to on-device or local AI at any time in Settings → Models.</p>
   <div class="notice">
-    <strong>Important:</strong> A license for onAI unlocks the app and all on-device AI features — including Apple Intelligence and local models via Ollama. Cloud AI requires your own API key from the respective provider (e.g. OpenAI, Anthropic) and is not included in the purchase.
+    <strong>Plan differences:</strong><br>
+    <strong>Basic</strong> — unlocks on-device AI (Apple Intelligence, Ollama) and lets you connect your own API key from any cloud provider.<br>
+    <strong>Pro</strong> — includes everything in Basic, plus built-in OpenAI cloud access with no API key required. Your text is sent to OpenAI's servers when using this feature.<br>
+    <strong>Lifetime</strong> — unlocks on-device AI and BYOK cloud, same as Basic. Does not include built-in OpenAI cloud access.
   </div>
 
   <h2>4. Your API Keys</h2>
@@ -189,33 +192,81 @@
 
   <h2>1. The App</h2>
   <p>onAI is a macOS menu bar utility that uses AI to transform selected text. By using onAI, you agree to these terms. It is available as a monthly subscription, yearly subscription, or a one-time lifetime purchase — all sold directly through our website at <a href="https://getonai.app" target="_blank">getonai.app</a>.</p>
+  <p><strong>System requirements:</strong> onAI requires macOS 26 or later and Apple Silicon (M1 or newer). Verify compatibility before purchasing.</p>
 
   <h2>2. Purchase & Billing</h2>
-  <p>Purchases are processed by Lemon Squeezy on our behalf. Upon a successful payment, your license key is delivered to the email address you provided at checkout.</p>
-  <p><strong>Subscriptions</strong> renew automatically until cancelled. To cancel, use the customer portal link included in your order confirmation email, or contact us at <a href="mailto:koszhanov.tilek@icloud.com">koszhanov.tilek@icloud.com</a>. Cancel at least 24 hours before the next renewal date to avoid being charged.</p>
-  <p><strong>Lifetime purchase</strong> grants permanent access to the app version available at the time of purchase and all future updates for as long as the app is maintained.</p>
-  <p>One active Mac per license. Deactivate your current Mac in Settings before moving to a new one, or contact us to transfer your license.</p>
+  <p>Purchases are processed by <strong>Lemon Squeezy</strong> on our behalf. Upon a successful payment, your license key is delivered to the email address you provided at checkout. If you do not receive it within a few minutes, check your spam folder or contact us.</p>
+  <p><strong>License activation.</strong> Each license key activates on one Mac at a time. Activate it in Settings → License. If you need to move to a new Mac, deactivate the current one first (Settings → License → Deactivate), then activate on the new Mac. If your Mac is lost or replaced unexpectedly, contact us to force-transfer your license.</p>
+  <p><strong>Subscriptions</strong> renew automatically on the same day each month or year until cancelled. To cancel, use the customer portal link in your order confirmation email. Cancel at least 24 hours before the next renewal date to avoid being charged for the next period. Cancellation stops future charges; access continues until the end of the paid period.</p>
+  <p><strong>Lifetime purchase</strong> grants permanent access to the app and all future updates for as long as the app is actively maintained. See Section 10 for what happens if the app is discontinued.</p>
 
-  <h2>3. What the License Includes</h2>
-  <p>Your license unlocks the onAI app and all on-device AI features — including Apple Intelligence and local models via Ollama. It does not include:</p>
-  <ul>
-    <li>Access to any third-party cloud AI service (OpenAI, Anthropic, etc.)</li>
-    <li>API credits from any cloud AI provider</li>
-    <li>Any cloud processing on our infrastructure</li>
-  </ul>
-  <p>Cloud AI features require a separate API key from the chosen provider, paid directly to that provider under their own terms.</p>
+  <h2>3. What Each Plan Includes</h2>
+  <p>All plans unlock the onAI app. The AI features available depend on your plan:</p>
+  <table style="width:100%; border-collapse:collapse; font-size:14px; margin:12px 0;">
+    <thead>
+      <tr style="border-bottom:2px solid #ddd;">
+        <th style="text-align:left; padding:8px 4px;">Feature</th>
+        <th style="text-align:center; padding:8px 4px;">Basic</th>
+        <th style="text-align:center; padding:8px 4px;">Pro</th>
+        <th style="text-align:center; padding:8px 4px;">Lifetime</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #eee;">
+        <td style="padding:7px 4px;">Apple Intelligence (on-device, private)</td>
+        <td style="text-align:center;">✓</td>
+        <td style="text-align:center;">✓</td>
+        <td style="text-align:center;">✓</td>
+      </tr>
+      <tr style="border-bottom:1px solid #eee;">
+        <td style="padding:7px 4px;">Local AI via Ollama</td>
+        <td style="text-align:center;">✓</td>
+        <td style="text-align:center;">✓</td>
+        <td style="text-align:center;">✓</td>
+      </tr>
+      <tr style="border-bottom:1px solid #eee;">
+        <td style="padding:7px 4px;">Cloud AI with your own API key (OpenAI, Claude, Gemini…)</td>
+        <td style="text-align:center;">✓</td>
+        <td style="text-align:center;">✓</td>
+        <td style="text-align:center;">✓</td>
+      </tr>
+      <tr style="border-bottom:1px solid #eee;">
+        <td style="padding:7px 4px;"><strong>Built-in OpenAI cloud — no API key needed</strong></td>
+        <td style="text-align:center; color:#999;">✗</td>
+        <td style="text-align:center; color:#16a34a;"><strong>✓</strong></td>
+        <td style="text-align:center; color:#999;">✗</td>
+      </tr>
+      <tr>
+        <td style="padding:7px 4px;">License per Mac</td>
+        <td style="text-align:center;">1</td>
+        <td style="text-align:center;">1</td>
+        <td style="text-align:center;">1</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>Bring Your Own Key (Basic &amp; Lifetime).</strong> Cloud AI via your own API key requires a valid, funded account with the chosen provider (e.g. OpenAI, Anthropic, Google). API usage costs are billed directly by that provider under their own pricing and terms — they are not included in your onAI license.</p>
+  <p><strong>Built-in OpenAI cloud (Pro only).</strong> Pro subscribers can use OpenAI-powered transformations without their own API key. This feature routes requests through our OpenAI account. Availability depends on OpenAI service uptime; we do not guarantee specific response times or model versions. We may adjust, throttle, or discontinue this feature with reasonable notice.</p>
 
   <h2>4. How the AI Works</h2>
-  <p><strong>On-Device — Apple Intelligence:</strong> Runs entirely on your Mac. Private, free, and offline. Requires Apple Intelligence to be enabled in System Settings. Response speed depends on your Mac's workload and thermal state.</p>
-  <p><strong>Local — Ollama:</strong> Runs AI locally via a server on your Mac. Requires Ollama to be installed and running. Performance varies by the model you choose and your hardware.</p>
-  <p><strong>Cloud — your API key:</strong> Sends selected text to the provider you configure using your own API key. Typically delivers the fastest, highest-quality results. Requires a valid, funded API key from the chosen provider.</p>
+  <p><strong>On-Device — Apple Intelligence:</strong> Runs entirely on your Mac using Apple's on-device framework. Requires Apple Intelligence to be enabled in System Settings → Apple Intelligence &amp; Siri. Model assets may take a few minutes to download after first enabling it. Availability depends on Apple's framework — not on onAI itself.</p>
+  <p><strong>Local — Ollama:</strong> Runs AI locally via a server on your Mac. Requires <a href="https://ollama.com" target="_blank">Ollama</a> to be installed and running separately. Performance varies by model and hardware.</p>
+  <p><strong>Cloud — your API key (Basic &amp; Lifetime):</strong> Sends selected text to the provider you configure. Requires a funded API key. Usage is billed by the provider at their rates.</p>
+  <p><strong>Cloud — built-in OpenAI (Pro only):</strong> Sends selected text to OpenAI's servers via our account. Your text is subject to OpenAI's <a href="https://openai.com/privacy" target="_blank">Privacy Policy</a> and <a href="https://openai.com/policies/usage-policies" target="_blank">Usage Policies</a>.</p>
 
   <h2>5. Refunds</h2>
-  <p>We offer refunds within 14 days of purchase if the app does not work as described. To request a refund, contact us at <a href="mailto:koszhanov.tilek@icloud.com">koszhanov.tilek@icloud.com</a> with your order number.</p>
-  <p>Please note: AI availability and response quality are not grounds for a refund, as these depend on factors outside the app — including whether Apple Intelligence is enabled on your device, your internet connection, the quality of your API key, or the performance of a third-party provider. All of these can be evaluated before purchasing using the free trial.</p>
+  <p>We offer a <strong>14-day money-back guarantee</strong>. If you are not satisfied within 14 days of purchase, request a refund through the link in your order confirmation email (sent by Lemon Squeezy) or by contacting us at <a href="mailto:koszhanov.tilek@icloud.com">koszhanov.tilek@icloud.com</a> with your order number. Refunds are typically processed within 5–10 business days.</p>
+  <p>The following are <strong>not grounds for a refund</strong>, as they depend on factors outside the app that can be verified before purchasing:</p>
+  <ul>
+    <li>Apple Intelligence is not available or not enabled on your Mac</li>
+    <li>Your Mac does not meet the system requirements (macOS 26+, Apple Silicon)</li>
+    <li>OpenAI or another third-party provider is experiencing an outage</li>
+    <li>Response quality does not meet your expectations</li>
+    <li>You have a BYOK plan and your API key is invalid, depleted, or rate-limited</li>
+  </ul>
+  <p>For subscription plans, refunds apply only to the most recent billing period. Previous periods are non-refundable.</p>
 
   <h2>6. Accessibility Permission</h2>
-  <p>onAI requires Accessibility permission to read selected text and replace it in other applications. Without it, the core functionality of the app cannot work. This permission can be granted or revoked at any time in <strong>System Settings → Privacy &amp; Security → Accessibility</strong>.</p>
+  <p>onAI requires Accessibility permission to read selected text and replace it in other applications. Without it, the core functionality of the app cannot work. This permission can be granted or revoked at any time in <strong>System Settings → Privacy &amp; Security → Accessibility</strong>. Granting this permission is not optional for the app to function — if you are uncomfortable with it, please evaluate this before purchasing.</p>
 
   <h2>7. Acceptable Use</h2>
   <p>You agree to use onAI responsibly and lawfully. In particular, you must not:</p>
@@ -223,23 +274,31 @@
     <li>Use onAI to generate harmful, illegal, threatening, or abusive content</li>
     <li>Violate the terms of service of any AI provider you connect</li>
     <li>Attempt to reverse-engineer, modify, or circumvent the app's license verification</li>
-    <li>Share, resell, or transfer your license key to others</li>
+    <li>Share, resell, or distribute your license key to others — your key may be revoked without refund</li>
     <li>Use onAI to process content you do not have the right to process</li>
+    <li>Abuse the built-in OpenAI feature (Pro) through automated or bulk usage beyond normal personal use</li>
   </ul>
 
   <h2>8. AI Output Disclaimer</h2>
-  <p>AI-generated text is produced automatically and may contain errors, inaccuracies, or unintended content. You are responsible for reviewing output before using it in any important context. We are not liable for decisions made based on AI-generated content.</p>
+  <p>AI-generated text is produced automatically and may contain errors, inaccuracies, or unintended content. You are responsible for reviewing all output before using it in any professional, legal, medical, or other important context. We are not liable for decisions made based on AI-generated content.</p>
 
-  <h2>9. Limitation of Liability</h2>
+  <h2>9. Service Availability</h2>
+  <p>On-device and local AI features (Apple Intelligence, Ollama) do not depend on our servers and are available as long as the respective software runs on your Mac.</p>
+  <p>The built-in OpenAI feature (Pro) and license validation require internet access. We aim for high availability but do not guarantee uninterrupted service. Temporary outages of third-party providers (OpenAI, Lemon Squeezy) are outside our control and do not constitute grounds for a refund or subscription credit.</p>
+
+  <h2>10. Lifetime License &amp; App Discontinuation</h2>
+  <p>A Lifetime license grants access for as long as onAI is actively maintained. If we decide to permanently discontinue the app, we will provide at least 90 days' notice and offer a prorated refund to Lifetime license holders based on time elapsed since purchase. This does not apply if the app is succeeded by a new version for which separate pricing is offered.</p>
+
+  <h2>11. Limitation of Liability</h2>
   <p>onAI is provided "as is" without warranties of any kind. To the maximum extent permitted by applicable law, we are not liable for any indirect, incidental, special, or consequential damages arising from your use of the app, including but not limited to data loss, service interruption, or reliance on AI output.</p>
 
-  <h2>10. Changes to These Terms</h2>
+  <h2>12. Changes to These Terms</h2>
   <p>We may update these terms from time to time. The latest version is always available at this page and in the app under Settings → Terms of Use. Continued use of the app after changes constitutes acceptance of the updated terms.</p>
 
-  <h2>11. Governing Law</h2>
+  <h2>13. Governing Law</h2>
   <p>These terms are governed by the laws of the Republic of Kazakhstan, without regard to conflict of law principles.</p>
 
-  <h2>12. Contact</h2>
+  <h2>14. Contact</h2>
   <p>Questions? Contact us at:<br>
   <strong>Email:</strong> <a href="mailto:koszhanov.tilek@icloud.com">koszhanov.tilek@icloud.com</a></p>
 
